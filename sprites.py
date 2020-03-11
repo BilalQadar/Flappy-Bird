@@ -5,7 +5,8 @@ class Player(pygame.sprite.Sprite):
     """Class for the main character which is controlled by the player """
 
     def __init__(self, image: str, size: int, start: tuple) -> None:
-        """Constructor for player sprite. Inherits from pygame Sprite class"""
+        """Constructor for player sprite. Inherits from pygame's Sprite
+        class"""
         super().__init__()
         self.image = pygame.image.load(image)
         self.image = pygame.transform.scale(self.image,size)
@@ -15,7 +16,7 @@ class Player(pygame.sprite.Sprite):
 
     def get_rect(self) -> list:
         """Returns the coordinates for the rectangle bounding box around
-         sprite object"""
+        the sprite object"""
         return self.rect
 
     def get_position(self) -> list:
@@ -24,7 +25,7 @@ class Player(pygame.sprite.Sprite):
         return position
 
     def rotate(self,angle: int) -> None:
-        """Updates sprites orientations by rotating the image by angle"""
+        """Updates the sprite's orientation by rotating the image by `angle`"""
         self.image = pygame.transform.rotate(self.image,angle)
 
     def update_pos(self, key: str) -> None:
@@ -38,7 +39,7 @@ class Player(pygame.sprite.Sprite):
             self.rect.y = new_position[1]
 
     def update(self) -> None:
-        """Update the sprites position on the screen"""
+        """Update the sprite's position on the screen"""
         new_position = sprite_down(self.get_position())
 
         if new_position is not None:
@@ -52,7 +53,8 @@ class Enemy(pygame.sprite.Sprite):
     player"""
 
     def __init__(self, image: str, size: int, start: int):
-        """Constructor for player sprite. Inherits from pygame Sprite class"""
+        """Constructor for player sprite. Inherits from pygame's Sprite
+        class"""
 
         super().__init__()
         self.image = pygame.image.load(image)
@@ -62,8 +64,8 @@ class Enemy(pygame.sprite.Sprite):
         self.rect.y = start[1]
 
     def get_rect(self) -> list:
-        """Returns the coordinates for the rectangle bounding box around sprite
-        object"""
+        """Returns the coordinates for the rectangle bounding box around the
+        sprite object"""
 
         return self.rect
 
@@ -74,7 +76,7 @@ class Enemy(pygame.sprite.Sprite):
         return position
 
     def update(self,pipe_speed: float) -> None:
-        """Update the sprites position on the screen. Makes the enemy scroll
+        """Updates the sprite's position on the screen. Makes the enemy scroll
         across the screen"""
 
         new_position = move_pipe(self.get_position(),pipe_speed)

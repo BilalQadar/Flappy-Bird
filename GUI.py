@@ -35,7 +35,7 @@ def main() -> None:
     if over_audio is not None:
         game_over_sound = os.path.join(dir_name,over_audio)
 
-    ### PYGAME INITILIZATIONS ###
+    ### PYGAME INITIALIZATIONS ###
     pygame.display.init()
     pygame.mixer.init()
     time = pygame.time.Clock()

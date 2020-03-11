@@ -59,7 +59,7 @@ def render_pipes(speed: int, timer: float, scaling: float, image_list: list,
 
 def text_to_screen(screen: pygame.display, text: str, position: tuple,
     color=(0, 0, 0), size=100) -> None:
-    """Renders text to a screen objects in a specified color and position.
+    """Renders text to a screen object in a specified color and position.
     Default font color is black and default size is 100px"""
 
     pygame.font.init()
@@ -86,7 +86,7 @@ def detect_collision(pipe_list: list, character: Player) -> bool:
     (left_p, top_p, width_p, height_p) = first_pipe.get_rect()
     (left_c, top_c, width_c, height_c) = character.get_rect()
 
-    #Reformatting width's to corner coordinates
+    #Reformatting widths to corner coordinates
     width_p += left_p
     width_c += left_c
     height_p += top_p
