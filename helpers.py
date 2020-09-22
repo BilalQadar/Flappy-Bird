@@ -66,8 +66,9 @@ def text_to_screen(screen: pygame.display, text: str, position: tuple,
     font = pygame.font.Font("./assets/fonts/ARCADECLASSIC.TTF", size)
     text = str(text)
     text = font.render(text, True, color)
-    screen.blit(text, (position[0], position[1]))
     pygame.font.quit()
+    screen.blit(text, (position[0], position[1]))
+
 
 
 def update_timer(timer: float, speed: int, scaling: float) -> float:

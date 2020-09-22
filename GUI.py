@@ -4,7 +4,7 @@ from learner import *
 from helpers import *
 import os
 
-def main() -> None:
+def game_loop() -> None:
     """This is the main loop responsible for rendering a pygame window. This
     loop also carries out all major game logic. Many learner functions are
     called in this loop. See if you can see some of the ones you have written!

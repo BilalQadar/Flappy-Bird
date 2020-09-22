@@ -80,10 +80,10 @@ def sprite_down(sprite_position: list) -> list:
     fall_amount = 10
     # #Delete the 'pass' above. Write your code below this line
 
-    if sprite_position[1] >= 600:
-        sprite[1] = 600
-    else:
+    if sprite_position[1] < 600:
         sprite_position[1] = sprite_position[1] + fall_amount
+    else:
+        sprite_position[1] = 600
 
     return sprite_position
 
@@ -136,8 +136,7 @@ def spawn_pipe(pipes: list) -> list:
     [width,height] and a list containing the pipes spawn position [x,y].
     """
 
-    # Delete the 'pass' above. Write your code below this line
-
+    # Delete the 'pass' above. Write your code below this line\
     # size = [x,y]
     large = [100, 400]
     small = [100, 300]
@@ -247,7 +246,7 @@ def update_score(pipe_list: list, score: int) -> int:
     for pipe in pipe_list:
         position = pipe.get_position()
         # Remove pipe from list if it went off screen
-        if position[0] <= 0:
+        if position[0] < 0:
             pipe_list.remove(pipe)
             score += 1
 
@@ -292,4 +291,4 @@ def get_gameover_audio() -> str:
 
 # DO NOT MODIFY THE LINE BELOW
 if __name__ == "__main__":
-    main()
+    game_loop()

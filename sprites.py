@@ -42,10 +42,7 @@ class Player(pygame.sprite.Sprite):
         new_position = sprite_down(self.get_position())
 
         if new_position is not None:
-            if new_position[1] >= 600:
-                new_position[1] = 600
-            else:
-                self.rect.y = new_position[1]
+            self.rect.y = new_position[1]
 
 class Enemy(pygame.sprite.Sprite):
     """Class for the enemy character or object which is controlled by the

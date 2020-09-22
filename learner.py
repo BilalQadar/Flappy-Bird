@@ -5,8 +5,8 @@ from GUI import *
 # STEP ONE: RENAME YOUR GAME
 def set_name() -> str:
     """ Return a string containing the name for your game """
-    pass
-    # Delete the 'pass' above. Write your code below this line
+
+    # Write your code below this line
 
 
 # STEP TWO: LOAD A BACKGROUND IMAGE
@@ -19,8 +19,7 @@ def get_background() -> str:
     For your image to fit correctly with this game make sure its 700 x 700
     pixels in size """
 
-    pass
-    # Delete the 'pass' above. Write your code below this line
+    # Write your code below this line
 
 
 # STEP THREE: LOAD A BACKGROUND IMAGE
@@ -33,8 +32,7 @@ def get_gameover_background() -> str:
     For your image to fit correctly with this game make sure its 700 x 700
     pixels in size """
 
-    pass
-    # Delete the 'pass' above. Write your code below this line
+    # Write your code below this line
 
 
 # STEP FOUR: LOAD A CHARACTER IMAGE
@@ -47,8 +45,7 @@ def get_character() -> str:
     For your image to fit correctly with this game make sure its 255 x 255
     pixels in size """
 
-    pass
-    # Delete the 'pass' above. Write your code below this line
+    # Write your code below this line
 
 
 # STEP FIVE: MOVE THE SPRITE DOWN
@@ -66,10 +63,8 @@ def sprite_down(sprite_position: list) -> list:
     HINT: If we need the sprite to move down, do we need to do anything with
     the x coordinate? """
 
-    pass
-    # Delete the 'pass' above. Write your code below this line
-
     fall_amount = 10
+    # Write your code below this line
 
 
 # STEP SIX: MOVE THE SPRITE UP
@@ -88,10 +83,8 @@ def move_sprite(key: str, sprite_position: list) -> list:
     HINT: If we need the sprite to move down, do we need to do anything with
     the x coordinate? """
 
-    pass
-    # Delete the 'pass' above. Write your code below this line
-
     jump_amount = 60
+    # Write your code below this line
 
 
 # STEP SEVEN: SPAWN A PIPE
@@ -115,12 +108,12 @@ def spawn_pipe(pipes: list) -> list:
     Return a list containing the pipe name, a list of the pipes size
     [width,height] and a list containing the pipes spawn position [x,y].
     """
-    pass
-    # Delete the 'pass' above. Write your code below this line
 
     large = [100,400]
     small = [100,300]
     possible_sizes = [large,small]
+
+    # Write your code below this line
 
 
 # STEP EIGHT: MOVE THE PIPES
@@ -138,8 +131,7 @@ def move_pipe(pipe_position: list, pipe_speed: float) -> list:
     HINT: If we need the pipes to move left to right, do we need to do
     anything with the y coordinate?"""
 
-    pass
-    # Delete the 'pass' above. Write your code below this line
+    # Write your code below this line
 
 
 # STEP NINE: DETECT COLLISIONS
@@ -159,8 +151,8 @@ def x_intersection(rect1_left: float, rect1_right: float, rect2_left: float,
 
     HINT: Draw two rectanlges touching. This may help write the logic for it!
     """
-    # Delete the 'pass' above. Write your code below this line
-    pass
+    # Write your code below this line
+
 
 
 def y_interection(rect1_top: float, rect1_bottom: float, rect2_top: float,
@@ -174,8 +166,8 @@ def y_interection(rect1_top: float, rect1_bottom: float, rect2_top: float,
 
     HINT: Draw two rectanlges touching. This may help write the logic for it!
     """
-    # Delete the 'pass' above. Write your code below this line
-    pass
+    # Write your code below this line
+
 
 
 # ADD ON: KEEP SCORE
@@ -206,8 +198,7 @@ def change_level(score: int, pipe_speed: float) -> float:
 
     STUMPED? Increase the speed whenever the score is divisible by 5."""
 
-    pass
-    # Delete the 'pass' above. Write your code below this line
+    # Write your code below this line
 
 
 # ADD ON: ADD MUSIC TO YOUR GAME
@@ -215,17 +206,15 @@ def get_game_audio() -> str:
     """ Return a string with the name and location of a song you would like to
     play during your game!"""
 
-    pass
-    #Delete the 'pass' above. Write your code below this line
+    # Write your code below this line
 
 
 def get_gameover_audio() -> str:
     """Return a strong with the name and location of a song or sound clip you
     would like to play the game over screen is displayed"""
 
-    pass
-    # Delete the 'pass' above. Write your code below this line
+    # Write your code below this line
 
 ### DO NOT MODIFY THE LINE BELOW ###
 if __name__ == "__main__":
-    main()
+    game_loop()
