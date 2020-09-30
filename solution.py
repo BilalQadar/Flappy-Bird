@@ -6,7 +6,6 @@ from GUI import *
 def set_name() -> str:
     """ Return a string containing the name for your game """
 
-    # Delete the 'pass' above. Write your code below this line
     name = "Floopy Bird"
     return(name)
 
@@ -19,9 +18,8 @@ def get_background() -> str:
     specifically the computer needs the path to that image!
 
     For your image to fit correctly with this game make sure its 700 x 700
-    pixels in size """
-
-    # Delete the 'pass' above. Write your code below this line
+    pixels in size
+    """
 
     file_name = "assets/images/background.png"
     return file_name
@@ -35,10 +33,8 @@ def get_gameover_background() -> str:
     specifically the computer needs the path to that image!
 
     For your image to fit correctly with this game make sure its 700 x 700
-    pixels in size """
-
-
-    # Delete the 'pass' above. Write your code below this line
+    pixels in size
+    """
 
     file_name = "assets/images/game-over.jpg"
     return file_name
@@ -52,9 +48,8 @@ def get_character() -> str:
     specifically the computer needs the path to that image!
 
     For your image to fit correctly with this game make sure its 255 x 255
-    pixels in size """
-
-    # Delete the 'pass' above. Write your code below this line
+    pixels in size
+    """
 
     file_name = "assets/images/bird.png"
     return file_name
@@ -71,14 +66,9 @@ def sprite_down(sprite_position: list) -> list:
 
     REMINDER: In python the top left corner of the screen is point (0,0). The
     bottom right corner of the screen is (600,600)
-
-    HINT: If we need the sprite to move down, do we need to do anything with
-    the x coordinate? """
-
-    # Delete the 'pass' above. Write your code below this line
+    """
 
     fall_amount = 10
-    # #Delete the 'pass' above. Write your code below this line
 
     if sprite_position[1] < 600:
         sprite_position[1] = sprite_position[1] + fall_amount
@@ -100,11 +90,7 @@ def move_sprite(key: str, sprite_position: list) -> list:
 
     REMINDER: In python the top left corner of the screen is point (0,0) and the
     bottom right corner is (600,600)
-
-    HINT: If we need the sprite to move down, do we need to do anything with
-    the x coordinate? """
-
-    # Delete the 'pass' above. Write your code below this line
+    """
 
     jump_amount = 60
 
@@ -119,7 +105,7 @@ def spawn_pipe(pipes: list) -> list:
     """ Time to add some pipes to this game! pipes is a list of file paths for
     two pipe images. The list looks like this:
 
-    [assets/images/pipe_upside_down.png , assets/images/pipe.png]
+    ["assets/images/pipe_upside_down.png" , "assets/images/pipe.png"]
 
     We want to randomly select one of these 2 pipes to spawn. Furthermore, we
     want to specify the size of each pipe (width, height). Given below is two
@@ -136,7 +122,6 @@ def spawn_pipe(pipes: list) -> list:
     [width,height] and a list containing the pipes spawn position [x,y].
     """
 
-    # Delete the 'pass' above. Write your code below this line\
     # size = [x,y]
     large = [100, 400]
     small = [100, 300]
@@ -168,10 +153,7 @@ def move_pipe(pipe_position: list, pipe_speed: float) -> list:
     using its speed. Return a list of pipe_position [x,y].
 
     REMINDER: In python the top left corner of the screen is point (0,0)
-    HINT: If we need the pipes to move left to right, do we need to do
-    anything with the y coordinate?"""
-
-    # Delete the 'pass' above. Write your code below this line
+    """
 
     pipe_position[0] -= pipe_speed
     return pipe_position
@@ -180,7 +162,6 @@ def move_pipe(pipe_position: list, pipe_speed: float) -> list:
 # STEP NINE: DETECT COLLISIONS
 def x_intersection(rect1_left: float, rect1_right: float, rect2_left: float,
     rect2_right: float) -> bool:
-
     """ In Scratch, we checked if two objects were touching based on color. In
     python however, things are a little bit different. In game design we
     determine whether two objects are touching based on if they are occupying
@@ -194,8 +175,6 @@ def x_intersection(rect1_left: float, rect1_right: float, rect2_left: float,
 
     HINT: Draw two rectanlges touching. This may help write the logic for it!
     """
-
-    # Delete the 'pass' above. Write your code below this line
 
     if rect1_left < rect2_right and rect1_right > rect2_left:
         return True
@@ -213,9 +192,6 @@ def y_interection(rect1_top: float, rect1_bottom: float, rect2_top: float,
 
     HINT: Draw two rectanlges touching. This may help write the logic for it!
     """
-
-
-    # Delete the 'pass' above. Write your code below this line
 
     if rect1_top < rect2_bottom and rect1_bottom > rect2_top:
         return True
@@ -241,8 +217,6 @@ def update_score(pipe_list: list, score: int) -> int:
     The .remove() function may be helpful here.
     """
 
-    # Delete the 'pass' above. Write your code below this line
-
     for pipe in pipe_list:
         position = pipe.get_position()
         # Remove pipe from list if it went off screen
@@ -258,9 +232,8 @@ def change_level(score: int, pipe_speed: float) -> float:
     """We want our game to get harder the longer a player plays. A cool way to
     do that is make our game get faster! Increase pipe_speed based on score.
 
-    STUMPED? Increase the speed whenever the score is divisible by 5."""
-
-    # Delete the 'pass' above. Write your code below this line
+    STUMPED? Increase the speed whenever the score is divisible by 5.
+    """
 
     if score % 5 == 0 and score != 0:
         pipe_speed += 2
@@ -271,9 +244,8 @@ def change_level(score: int, pipe_speed: float) -> float:
 # ADD ON: ADD MUSIC TO YOUR GAME
 def get_game_audio() -> str:
     """ Return a string with the name and location of a song you would like to
-    play during your game!"""
-
-    # Delete the 'pass' above. Write your code below this line
+    play during your game!
+    """
 
     music_file = "assets/sounds/Nitro Fun.mp3"
     return music_file
@@ -281,9 +253,8 @@ def get_game_audio() -> str:
 
 def get_gameover_audio() -> str:
     """Return a strong with the name and location of a song or sound clip you
-    would like to play the game over screen is displayed"""
-
-    # Delete the 'pass' above. Write your code below this line
+    would like to play the game over screen is displayed
+    """
 
     music_file = "assets/sounds/game over.mp3"
     return music_file

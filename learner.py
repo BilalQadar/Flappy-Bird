@@ -17,7 +17,8 @@ def get_background() -> str:
     specifically the computer needs the path to that image!
 
     For your image to fit correctly with this game make sure its 700 x 700
-    pixels in size """
+    pixels in size
+    """
 
     # Write your code below this line
 
@@ -30,7 +31,8 @@ def get_gameover_background() -> str:
     specifically the computer needs the path to that image!
 
     For your image to fit correctly with this game make sure its 700 x 700
-    pixels in size """
+    pixels in size
+    """
 
     # Write your code below this line
 
@@ -43,7 +45,8 @@ def get_character() -> str:
     specifically the computer needs the path to that image!
 
     For your image to fit correctly with this game make sure its 255 x 255
-    pixels in size """
+    pixels in size
+    """
 
     # Write your code below this line
 
@@ -59,9 +62,7 @@ def sprite_down(sprite_position: list) -> list:
 
     REMINDER: In python the top left corner of the screen is point (0,0). The
     bottom right corner of the screen is (600,600)
-
-    HINT: If we need the sprite to move down, do we need to do anything with
-    the x coordinate? """
+    """
 
     fall_amount = 10
     # Write your code below this line
@@ -79,9 +80,7 @@ def move_sprite(key: str, sprite_position: list) -> list:
 
     REMINDER: In python the top left corner of the screen is point (0,0) and the
     bottom right corner is (600,600)
-
-    HINT: If we need the sprite to move down, do we need to do anything with
-    the x coordinate? """
+    """
 
     jump_amount = 60
     # Write your code below this line
@@ -92,7 +91,7 @@ def spawn_pipe(pipes: list) -> list:
     """ Time to add some pipes to this game! pipes is a list of file paths for
     two pipe images. The list looks like this:
 
-    [assets/images/pipe_upside_down.png , assets/images/pipe.png]
+    ["assets/images/pipe_upside_down.png" , "assets/images/pipe.png"]
 
     We want to randomly select one of these 2 pipes to spawn. Furthermore, we
     want to specify the size of each pipe (width, height). Given below is two
@@ -128,8 +127,7 @@ def move_pipe(pipe_position: list, pipe_speed: float) -> list:
     using its speed. Return a list of pipe_position [x,y].
 
     REMINDER: In python the top left corner of the screen is point (0,0)
-    HINT: If we need the pipes to move left to right, do we need to do
-    anything with the y coordinate?"""
+    """
 
     # Write your code below this line
 
@@ -137,7 +135,6 @@ def move_pipe(pipe_position: list, pipe_speed: float) -> list:
 # STEP NINE: DETECT COLLISIONS
 def x_intersection(rect1_left: float, rect1_right: float, rect2_left: float,
     rect2_right: float) -> bool:
-
     """ In Scratch, we checked if two objects were touching based on color. In
     python however, things are a little bit different. In game design we
     determine whether two objects are touching based on if they are occupying
@@ -187,8 +184,7 @@ def update_score(pipe_list: list, score: int) -> int:
 
     The .remove() function may be helpful here.
     """
-    pass
-    # Delete the 'pass' above. Write your code below this line
+    # Write your code below this line
 
 
 # ADD ON: MAKE THE GAME FASTER
@@ -196,7 +192,8 @@ def change_level(score: int, pipe_speed: float) -> float:
     """We want our game to get harder the longer a player plays. A cool way to
     do that is make our game get faster! Increase pipe_speed based on score.
 
-    STUMPED? Increase the speed whenever the score is divisible by 5."""
+    STUMPED? Increase the speed whenever the score is divisible by 5.
+    """
 
     # Write your code below this line
 
@@ -204,14 +201,16 @@ def change_level(score: int, pipe_speed: float) -> float:
 # ADD ON: ADD MUSIC TO YOUR GAME
 def get_game_audio() -> str:
     """ Return a string with the name and location of a song you would like to
-    play during your game!"""
+    play during your game!
+    """
 
     # Write your code below this line
 
 
 def get_gameover_audio() -> str:
     """Return a strong with the name and location of a song or sound clip you
-    would like to play the game over screen is displayed"""
+    would like to play the game over screen is displayed
+    """
 
     # Write your code below this line
 
