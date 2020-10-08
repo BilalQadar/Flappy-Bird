@@ -1,6 +1,6 @@
 import pygame
 from sprites import *
-from learner import *
+from solution import *
 from helpers import *
 import os
 
@@ -117,6 +117,7 @@ def game_loop() -> None:
         pygame.display.flip()
         # Update timer to new time
         timer += time.tick()
+        print(is_game_over)
 
     if is_game_over:
         # Play game over sound
@@ -128,16 +129,19 @@ def game_loop() -> None:
         PIPES.remove()
         character.kill()
         screen.blit(game_over_background, [0, 0])
-
+        is_font_open = False
         while active:
             events = pygame.event.get()
 
             for event in events:
                 active = is_active(event)
-            if score is not None:
+            if score is not None and not is_font_open:
                 text_to_screen(screen, "FINAL SCORE " + str(score),
                     (200, 600), (255, 255, 255), 50)
+                is_font_open = True
+
             pygame.display.flip()
 
-    else:
+        print('closing')
+        pygame.display.quit()
         pygame.quit()

@@ -1,4 +1,4 @@
-import pygame from './package/pygame'
+import pygame
 import random
 from GUI import *
 
