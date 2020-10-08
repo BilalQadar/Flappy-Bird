@@ -1,6 +1,6 @@
 import pygame
 from sprites import *
-from solution import *
+from learner import *
 from helpers import *
 import os
 
@@ -21,6 +21,13 @@ def game_loop() -> None:
     ### SOUNDS ###
     game_audio = get_game_audio()
     over_audio = get_gameover_audio()
+
+    ### FONTS ###
+    size = 100
+    smaller_size = 50
+    pygame.font.init()
+    font = pygame.font.Font("./assets/fonts/ARCADECLASSIC.TTF", size)
+    smaller_font = pygame.font.Font("./assets/fonts/ARCADECLASSIC.TTF", smaller_size)
 
     ### DIRECTORY NAMES & START STATES ###
     dir_name = os.path.dirname(__file__)
@@ -80,6 +87,7 @@ def game_loop() -> None:
 
         events = pygame.event.get()
         key_pressed = False
+
         for event in events:
             active = is_active(event)
             if character_image is not None:
@@ -101,6 +109,11 @@ def game_loop() -> None:
         if len(pipe_list) > 0:
             is_game_over = detect_collision(pipe_list, character)
 
+        elif event.type == pygame.QUIT:
+            is_game_over = False
+            active = False
+            quitGame(pygame)
+
         timer = update_timer(timer,speed,scaling)
         # Update everything seen on screen
         PIPES.update(pipe_speed)
@@ -113,11 +126,12 @@ def game_loop() -> None:
         PIPES.draw(screen)
         # Draw score on screen
         if score is not None:
-            text_to_screen(screen, str(score), (700/2,50),(255,255,255))
-        pygame.display.flip()
-        # Update timer to new time
-        timer += time.tick()
-        print(is_game_over)
+            text_to_screen(screen, font, str(score), (700/2,50),(255,255,255))
+
+        if active:
+            pygame.display.flip()
+            # Update timer to new time
+            timer += time.tick()
 
     if is_game_over:
         # Play game over sound
@@ -129,19 +143,16 @@ def game_loop() -> None:
         PIPES.remove()
         character.kill()
         screen.blit(game_over_background, [0, 0])
-        is_font_open = False
+
         while active:
             events = pygame.event.get()
 
             for event in events:
                 active = is_active(event)
-            if score is not None and not is_font_open:
-                text_to_screen(screen, "FINAL SCORE " + str(score),
-                    (200, 600), (255, 255, 255), 50)
-                is_font_open = True
+            if score is not None:
+                text_to_screen(screen, smaller_font, "FINAL SCORE " + str(score),
+                    (200, 600), (255, 255, 255))
 
             pygame.display.flip()
 
-        print('closing')
-        pygame.display.quit()
-        pygame.quit()
+        quitGame(pygame)

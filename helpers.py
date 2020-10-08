@@ -1,6 +1,6 @@
 import pygame
 from sprites import *
-from solution import *
+from learner import *
 
 
 def load_background(image_file: str) -> None:
@@ -57,16 +57,13 @@ def render_pipes(speed: int, timer: float, scaling: float, image_list: list,
             return pipe
 
 
-def text_to_screen(screen: pygame.display, text: str, position: tuple,
-    color=(0, 0, 0), size=100) -> None:
+def text_to_screen(screen: pygame.display, font, text: str, position: tuple,
+    color=(0, 0, 0)) -> None:
     """Renders text to a screen objects in a specified color and position.
     Default font color is black and default size is 100px"""
 
-    pygame.font.init()
-    font = pygame.font.Font("./assets/fonts/ARCADECLASSIC.TTF", size)
     text = str(text)
     text = font.render(text, True, color)
-    pygame.font.quit()
     screen.blit(text, (position[0], position[1]))
 
 
@@ -117,3 +114,8 @@ def change_score(pipe_list: list, score: int, speed: int,
                 pipe_speed = pipes
 
     return (updated_score, pipe_speed)
+
+def quitGame(pygame):
+    pygame.font.quit()
+    pygame.display.quit()
+    pygame.quit()

@@ -1,5 +1,5 @@
 import pygame
-from solution import *
+from learner import *
 
 class Player(pygame.sprite.Sprite):
     """Class for the main character which is controlled by the player """
