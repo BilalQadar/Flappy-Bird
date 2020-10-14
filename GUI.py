@@ -67,6 +67,7 @@ def game_loop() -> None:
     ### LOAD MAIN GAME SOUNDS ###
     if game_audio is not None:
         pygame.mixer.music.load(game_music_file)
+        pygame.mixer.music.set_volume(0.3)
         pygame.mixer.music.play(-1)
 
     ### RENDER CHARACTER ###
@@ -134,6 +135,7 @@ def game_loop() -> None:
         # Play game over sound
         if over_audio is not None:
             pygame.mixer.music.load(game_over_sound)
+            pygame.mixer.music.set_volume(0.3)
             pygame.mixer.music.play(-1)
 
         # Remove game from screen & switch to game over background
