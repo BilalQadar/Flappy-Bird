@@ -9,46 +9,45 @@ def load_background(image_file: str) -> None:
     return image
 
 
-def is_active(event: pygame.event) -> bool:
+def is_active(events) -> bool:
     """Detects if an event type is quit. Returns True or False based on whether
     the close button is being pressed"""
-    if event.type == pygame.QUIT:
-        return False
-    else:
-        return True
+    for event in events:
+        if event.type == pygame.QUIT:
+            return False
+    return True
 
 
-def keys(character: Player,event: pygame.event) -> bool:
+def keys(character: Player, events) -> bool:
     """Updates the position of sprite on screen depending on whether the UP or
     DOWN arrow key is pressed """
+    for event in events:
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_UP:
+                character.update_pos('UP')
+                return True
 
-    if event.type == pygame.KEYDOWN:
-        if event.key == pygame.K_UP:
-            character.update_pos('UP')
-            return True
+            elif event.key == pygame.K_DOWN:
+                character.update_pos('DOWN')
+                return True
 
-        elif event.key == pygame.K_DOWN:
-            character.update_pos('DOWN')
-            return True
+            elif event.key == pygame.K_LEFT:
+                character.update_pos('LEFT')
+                return True
 
-        elif event.key == pygame.K_LEFT:
-            character.update_pos('LEFT')
-            return True
-
-        elif event.key == pygame.K_RIGHT:
-            character.update_pos('RIGHT')
-            return True
-
+            elif event.key == pygame.K_RIGHT:
+                character.update_pos('RIGHT')
+                return True
     return False
 
 
-def render_pipes(speed: int, timer: float, scaling: float, image_list: list,
+def render_pipes(timer: float, scaling: float, image_list: list,
     group: pygame.sprite.Group) -> Enemy:
     """Renders pipe images onto the screen. Pipe objects are created after a set
     number of milliseconds. The newly formed pipe is then added to the pipes
     group"""
 
-    if timer > scaling * (1/speed) * 1000:
+    if timer > scaling * 1000:
         characteristics = spawn_pipe(image_list)
 
         if characteristics is not None:
@@ -62,15 +61,14 @@ def text_to_screen(screen: pygame.display, font, text: str, position: tuple,
     """Renders text to a screen objects in a specified color and position.
     Default font color is black and default size is 100px"""
 
-    text = str(text)
     text = font.render(text, True, color)
     screen.blit(text, (position[0], position[1]))
 
 
 
-def update_timer(timer: float, speed: int, scaling: float) -> float:
+def update_timer(timer: float, scaling: float) -> float:
     """Reset timer to 0 after a specified number of milliseconds has passed"""
-    if timer > scaling * (1/speed) * 1000:
+    if timer > scaling * 1000:
         return 0
     else:
         return timer
@@ -99,7 +97,7 @@ def detect_collision(pipe_list: list, character: Player) -> bool:
         return False
 
 
-def change_score(pipe_list: list, score: int, speed: int,
+def change_score(pipe_list: list, score: int,
     pipe_speed: int) -> tuple:
     """Update score depending on the number of pipes the bird has travelled
     past. Every time the score is updated, also update the level
@@ -114,8 +112,3 @@ def change_score(pipe_list: list, score: int, speed: int,
                 pipe_speed = pipes
 
     return (updated_score, pipe_speed)
-
-def quitGame(pygame):
-    pygame.font.quit()
-    pygame.display.quit()
-    pygame.quit()
