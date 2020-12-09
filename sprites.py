@@ -2,79 +2,73 @@ import pygame
 from learner import *
 
 class Player(pygame.sprite.Sprite):
-    """Class for the main character which is controlled by the player """
+	"""Class for the main character which is controlled by the player """
 
-    def __init__(self, image: str, size: int, start: tuple) -> None:
-        """Constructor for player sprite. Inherits from pygame Sprite class"""
-        super().__init__()
-        self.image = pygame.image.load(image)
-        self.image = pygame.transform.scale(self.image,size)
-        self.rect = self.image.get_rect()
-        self.rect.x  = start[0]
-        self.rect.y = start[1]
+	def __init__(self, image: str, size: int, start: tuple) -> None:
+		"""Constructor for player sprite. Inherits from pygame Sprite class"""
+		super().__init__()
+		loaded_image = pygame.image.load(image).convert_alpha()
+		self.image = pygame.transform.scale(loaded_image,size)
+		self.rect = self.image.get_rect()
+		self.rect.x  = start[0]
+		self.rect.y = start[1]
 
-    def get_rect(self) -> list:
-        """Returns the coordinates for the rectangle bounding box around
-         sprite object"""
-        return self.rect
 
-    def get_position(self) -> list:
-        """Return the x,y coordinates for the top left corner of the sprite"""
-        position = [self.rect.x,self.rect.y]
-        return position
+	def get_rect(self) -> list:
+		"""Returns the coordinates for the rectangle bounding box around
+			sprite object"""
+		return self.rect
 
-    def rotate(self,angle: int) -> None:
-        """Updates sprites orientations by rotating the image by angle"""
-        self.image = pygame.transform.rotate(self.image,angle)
+	def get_position(self) -> list:
+		"""Return the x,y coordinates for the top left corner of the sprite"""
+		position = [self.rect.x,self.rect.y]
+		return position
 
-    def update_pos(self, key: str) -> None:
-        """Update the position of the sprite based on whether the up or down
-        key is pressed"""
-        position = self.get_position()
-        new_position = move_sprite(key, position)
+	def update_pos(self, key: str) -> None:
+		"""Update the position of the sprite based on whether the up or down
+		key is pressed"""
+		position = self.get_position()
+		new_position = move_sprite(key, position)
 
-        if new_position is not None:
-            self.rect.x = new_position[0]
-            self.rect.y = new_position[1]
+		if new_position is not None:
+			self.rect.y = new_position[1]
 
-    def update(self) -> None:
-        """Update the sprites position on the screen"""
-        new_position = sprite_down(self.get_position())
-
-        if new_position is not None:
-            self.rect.y = new_position[1]
+	def update(self) -> None:
+		"""Update the sprites position on the screen"""
+		new_position = sprite_down(self.get_position())
+		if new_position is not None:
+			self.rect.y = new_position[1]
 
 class Enemy(pygame.sprite.Sprite):
-    """Class for the enemy character or object which is controlled by the
-    player"""
+	"""Class for the enemy character or object which is controlled by the
+	player"""
 
-    def __init__(self, image: str, size: int, start: int):
-        """Constructor for player sprite. Inherits from pygame Sprite class"""
+	def __init__(self, image: str, size: int, start: int):
+		"""Constructor for player sprite. Inherits from pygame Sprite class"""
 
-        super().__init__()
-        self.image = pygame.image.load(image)
-        self.image = pygame.transform.scale(self.image,size)
-        self.rect = self.image.get_rect()
-        self.rect.x  = start[0]
-        self.rect.y = start[1]
+		super().__init__()
+		self.image = pygame.image.load(image).convert_alpha()
+		self.image = pygame.transform.scale(self.image,size)
+		self.rect = self.image.get_rect()
+		self.rect.x  = start[0]
+		self.rect.y = start[1]
 
-    def get_rect(self) -> list:
-        """Returns the coordinates for the rectangle bounding box around sprite
-        object"""
+	def get_rect(self) -> list:
+		"""Returns the coordinates for the rectangle bounding box around sprite
+		object"""
 
-        return self.rect
+		return self.rect
 
-    def get_position(self) -> list:
-        """Return the x,y coordinates for the top left corner of the sprite"""
+	def get_position(self) -> list:
+		"""Return the x,y coordinates for the top left corner of the sprite"""
 
-        position = [self.rect.x,self.rect.y]
-        return position
+		position = [self.rect.x,self.rect.y]
+		return position
 
-    def update(self,pipe_speed: float) -> None:
-        """Update the sprites position on the screen. Makes the enemy scroll
-        across the screen"""
+	def update(self,pipe_speed: float) -> None:
+		"""Update the sprites position on the screen. Makes the enemy scroll
+		across the screen"""
 
-        new_position = move_pipe(self.get_position(),pipe_speed)
-
-        if new_position is not None:
-            self.rect.x = new_position[0]
+		new_position = move_pipe(self.get_position(),pipe_speed)
+		if new_position is not None:
+			self.rect.x = new_position[0]
