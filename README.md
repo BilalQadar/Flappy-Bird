@@ -5,7 +5,9 @@ This project is an new take on an old game. Flappy bird was a very popular mobil
 
 ## Teaching Resources 
 [Slides](https://docs.google.com/presentation/d/1UwPnJwq5MS1gTcECr6ojFJjMJfoRN5kO2HMOh7CBxlc/edit?usp=sharing)
+
 [Instructor Notes](https://docs.google.com/document/d/1dV_H5kjK9XHoYVtjapnosLglj3SWwElfD5mpDFxachY/edit?usp=sharing)
+
 [Solution Sheet](https://docs.google.com/document/d/1oa7JHT1Hku1maAZPJNYwgY2FURMmLAbM7Ks5w60i5bM/edit?usp=sharing)
 
 ## Contributing
